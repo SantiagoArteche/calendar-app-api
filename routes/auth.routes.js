@@ -16,7 +16,7 @@ authRouter.get("/", getUsers);
 
 authRouter.get("/renew", validateJWT, revalidateToken);
 
-authRouter.get("/:id", getUserById);
+authRouter.get("/:uid", getUserById);
 
 authRouter.post(
   "/",

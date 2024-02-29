@@ -25,10 +25,10 @@ export const getUsers = async (request, response) => {
 };
 
 export const getUserById = async (request, response) => {
-  const { id } = request.params;
+  const { uid } = request.params;
 
   try {
-    const user = await userModel.findById(id);
+    const user = await userModel.findById(uid);
 
     if (!user)
       return response.status(400).send({
