@@ -129,7 +129,7 @@ export const revalidateToken = async (request, response) => {
 
     response.status(200).send({
       ok: true,
-      msg: token,
+      msg: { token, uid, name },
     });
   } catch (error) {
     response.status(500).send({
