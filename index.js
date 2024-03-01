@@ -4,7 +4,10 @@ import { indexRouter } from "./routes/index.routes.js";
 import mongoose from "mongoose";
 import cors from "cors";
 
-const whiteList = ["http://localhost:5173"];
+const whiteList = [
+  "http://localhost:5173",
+  "https://calendar-app-art.vercel.app",
+];
 
 const corsOptions = {
   origin: function (origin, callback) {
