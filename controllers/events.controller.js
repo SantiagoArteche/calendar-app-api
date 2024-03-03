@@ -27,9 +27,10 @@ export const createEvent = async (request, response) => {
       msg: newEvent,
     });
   } catch (error) {
+    console.log(error);
     response.status(500).send({
       ok: false,
-      msg: error,
+      msg: "Error creating new event",
     });
   }
 };
@@ -61,7 +62,6 @@ export const updateEvent = async (request, response) => {
     const updateEvent = await eventModel.findByIdAndUpdate(id, newEvent, {
       new: true,
     });
-    console.log(updateEvent);
     response.status(200).send({
       ok: true,
       msg: updateEvent,
@@ -91,7 +91,7 @@ export const deleteEvent = async (request, response) => {
     if (event.user.toString() !== uid) {
       return response.status(401).send({
         ok: false,
-        msg: "Don't have authorization to edit this event",
+        msg: "Don't have authorization to delete this event",
       });
     }
 
